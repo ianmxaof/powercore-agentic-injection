@@ -1,0 +1,46 @@
+# Core dependencies
+openai>=1.0.0
+pyyaml>=6.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Web framework
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.5.0
+
+# Async support
+asyncio-mqtt>=0.16.0
+aiohttp>=3.9.0
+
+# Development tools
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+flake8>=6.0.0
+
+# Monitoring and logging
+structlog>=23.2.0
+prometheus-client>=0.19.0
+
+# File handling
+watchdog>=3.0.0
+pathlib2>=2.3.7
+
+# Data processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Security
+cryptography>=41.0.0
+passlib>=1.7.4
+
+# Optional: Database support
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+
+# Optional: Redis for caching
+redis>=5.0.0
+
+# Optional: Celery for task queue
+celery>=5.3.0

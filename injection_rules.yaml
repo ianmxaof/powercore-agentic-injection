@@ -1,0 +1,223 @@
+# Agentic Injection Rules v1.1
+# Dynamic AI Agent Orchestration Configuration
+
+# Global settings
+settings:
+  version: "1.1"
+  auto_optimize: true
+  max_concurrent_agents: 5
+  execution_timeout: 300  # seconds
+
+# Trigger definitions
+triggers:
+  # Code review trigger
+  - name: "code_review"
+    condition: "file_changed"
+    description: "Automatically review code changes"
+    enabled: true
+    agents:
+      - name: "code_analyzer"
+        type: "code_analysis"
+        priority: "high"
+        config:
+          model: "gpt-4"
+          max_tokens: 2000
+          temperature: 0.1
+          focus_areas:
+            - "code_quality"
+            - "security_vulnerabilities"
+            - "performance_issues"
+            - "best_practices"
+
+  # Testing trigger
+  - name: "testing"
+    condition: "test_files_modified"
+    description: "Generate and maintain test suites"
+    enabled: true
+    agents:
+      - name: "test_generator"
+        type: "test_automation"
+        priority: "medium"
+        config:
+          model: "gpt-4"
+          max_tokens: 3000
+          temperature: 0.2
+          frameworks:
+            - "jest"
+            - "cypress"
+            - "playwright"
+          coverage_target: 90
+
+  # Documentation trigger
+  - name: "documentation"
+    condition: "always"
+    description: "Maintain comprehensive documentation"
+    enabled: true
+    agents:
+      - name: "doc_generator"
+        type: "documentation"
+        priority: "medium"
+        config:
+          model: "gpt-4"
+          max_tokens: 2500
+          temperature: 0.3
+          sections:
+            - "README"
+            - "API_Documentation"
+            - "Setup_Guide"
+            - "Contributing"
+
+  # Deployment trigger
+  - name: "deployment"
+    condition: "platform_web"
+    description: "Setup deployment infrastructure"
+    enabled: true
+    agents:
+      - name: "deployment_setup"
+        type: "deployment"
+        priority: "high"
+        config:
+          model: "gpt-4"
+          max_tokens: 4000
+          temperature: 0.1
+          platforms:
+            - "vercel"
+            - "netlify"
+            - "aws"
+            - "docker"
+
+  # Security trigger
+  - name: "security_audit"
+    condition: "complexity_high"
+    description: "Perform security analysis for complex projects"
+    enabled: true
+    agents:
+      - name: "security_analyzer"
+        type: "code_analysis"
+        priority: "high"
+        config:
+          model: "gpt-4"
+          max_tokens: 2000
+          temperature: 0.1
+          focus_areas:
+            - "security_vulnerabilities"
+            - "authentication"
+            - "authorization"
+            - "data_protection"
+
+  # Performance trigger
+  - name: "performance_optimization"
+    condition: "platform_web"
+    description: "Optimize application performance"
+    enabled: true
+    agents:
+      - name: "performance_analyzer"
+        type: "code_analysis"
+        priority: "medium"
+        config:
+          model: "gpt-4"
+          max_tokens: 2000
+          temperature: 0.1
+          focus_areas:
+            - "load_time_optimization"
+            - "bundle_size"
+            - "caching_strategies"
+            - "database_optimization"
+
+  # Mobile-specific trigger
+  - name: "mobile_optimization"
+    condition: "platform_mobile"
+    description: "Mobile-specific optimizations"
+    enabled: true
+    agents:
+      - name: "mobile_optimizer"
+        type: "code_analysis"
+        priority: "medium"
+        config:
+          model: "gpt-4"
+          max_tokens: 2000
+          temperature: 0.1
+          focus_areas:
+            - "mobile_performance"
+            - "battery_optimization"
+            - "offline_capabilities"
+            - "native_integration"
+
+# Agent type definitions
+agent_types:
+  code_analysis:
+    description: "Analyzes code quality and suggests improvements"
+    capabilities:
+      - "code_review"
+      - "refactoring_suggestions"
+      - "bug_detection"
+      - "security_analysis"
+    default_config:
+      model: "gpt-4"
+      max_tokens: 2000
+      temperature: 0.1
+
+  test_automation:
+    description: "Generates and maintains test suites"
+    capabilities:
+      - "unit_test_generation"
+      - "integration_test_setup"
+      - "test_maintenance"
+      - "coverage_analysis"
+    default_config:
+      model: "gpt-4"
+      max_tokens: 3000
+      temperature: 0.2
+
+  documentation:
+    description: "Generates and updates project documentation"
+    capabilities:
+      - "readme_generation"
+      - "api_docs"
+      - "code_comments"
+      - "setup_guides"
+    default_config:
+      model: "gpt-4"
+      max_tokens: 2500
+      temperature: 0.3
+
+  deployment:
+    description: "Handles deployment and infrastructure setup"
+    capabilities:
+      - "ci_cd_setup"
+      - "infrastructure_as_code"
+      - "deployment_automation"
+      - "monitoring_setup"
+    default_config:
+      model: "gpt-4"
+      max_tokens: 4000
+      temperature: 0.1
+
+# MetaAgent optimization settings
+meta_agent:
+  enabled: true
+  learning_rate: 0.1
+  optimization_interval: 3600  # seconds
+  performance_threshold: 0.7
+  max_history_size: 1000
+
+# Execution policies
+execution_policies:
+  retry_on_failure: true
+  max_retries: 3
+  retry_delay: 5  # seconds
+  parallel_execution: true
+  resource_limits:
+    max_memory: "2GB"
+    max_cpu_percent: 80
+    max_disk_usage: "1GB"
+
+# Monitoring and logging
+monitoring:
+  enabled: true
+  log_level: "INFO"
+  metrics_collection: true
+  alerting:
+    enabled: true
+    performance_threshold: 0.8
+    error_threshold: 0.1
